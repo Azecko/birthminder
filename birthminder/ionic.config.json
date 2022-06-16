@@ -1,0 +1,7 @@
+{
+  "name": "Birthminder",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

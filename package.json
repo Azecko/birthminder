@@ -1,0 +1,19 @@
+{
+  "name": "birthminder",
+  "version": "1.0.0",
+  "description": "Birthminder is an app that can remind you of people birthdays",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Azecko/birthminder.git"
+  },
+  "author": "Azecko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Azecko/birthminder/issues"
+  },
+  "homepage": "https://github.com/Azecko/birthminder#readme"
+}
