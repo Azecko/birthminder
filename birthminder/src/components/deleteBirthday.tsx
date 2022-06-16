@@ -1,6 +1,5 @@
-function deleteBirthday(birthday:string) {
-    console.log(birthday)
-    window.localStorage.removeItem(`birthday_${birthday}`);
+function deleteBirthday(index:string) {
+    window.localStorage.removeItem(`birthday_${index}`);
     window.location.reload();
 }
 

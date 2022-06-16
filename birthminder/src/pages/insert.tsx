@@ -3,6 +3,7 @@ import { format, parseISO } from 'date-fns';
 import { useState } from 'react';
 import registerBirthday from '../components/registerBirthday';
 import deleteBirthday from '../components/deleteBirthday';
+import getIndex from '../components/getIndex';
 import isBirthday from '../components/isBirthday';
 
 const Insert: React.FC = () => {
@@ -52,7 +53,7 @@ const Insert: React.FC = () => {
           </IonCard>
           <IonButton color="primary" onClick={e => registerBirthday(selectedDate, selectedName) || setShowAlert(true)}>Insert</IonButton>
           {
-            Object.keys(allBirthdays).length > 0 ? (
+            Object.keys(allBirthdays).length > 1 ? (
               <table style={{width: '30%', border: '1px solid white', textAlign: 'center'}}>
                 <tr>
                   <th style={{border: '1px solid white'}}>Name</th>
@@ -64,6 +65,9 @@ const Insert: React.FC = () => {
                   Object.keys(allBirthdays).map(function(key) {
                     const birthday = JSON.parse(allBirthdays[key])
                     const birthdayDate = new Date(birthday.date)              
+                    if(!key.startsWith('birthday_')) {
+                      return;
+                    }      
                     return (
                       <tr>
                         <td>{birthday.name}</td>
@@ -71,7 +75,7 @@ const Insert: React.FC = () => {
                         {
                           isBirthday(birthdayDate) ? <td>Yes</td> : <td>No</td>
                         }
-                        <td><IonButton size="small" color="danger" onClick={e=> deleteBirthday(birthday.name)}>Delete</IonButton></td>
+                        <td><IonButton size="small" color="danger" onClick={e=> deleteBirthday(birthday.index)}>Delete</IonButton></td>
                       </tr>
                     )
                   })
