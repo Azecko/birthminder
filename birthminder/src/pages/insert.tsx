@@ -44,7 +44,7 @@ const Insert: React.FC = () => {
         <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent:'center', marginTop: '1vh', gap: '20px'}}>
           <IonItem color="light">
             <IonLabel>Enter a name</IonLabel>
-            <IonInput placeholder="Alexandre" color="dark" onIonChange={e => setSelectedName(e.detail.value!)}></IonInput>
+            <IonInput placeholder="Alexandre" pattern='date' color="dark" onIonChange={e => setSelectedName(e.detail.value!)}></IonInput>
           </IonItem>
           <IonLabel>Date of the birthday</IonLabel>
             <IonDatetime presentation="date" onIonChange={e => setSelectedDate(formatDate(e.detail.value!))}></IonDatetime>
