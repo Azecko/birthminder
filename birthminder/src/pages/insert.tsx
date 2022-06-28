@@ -4,6 +4,7 @@ import { useState } from 'react';
 import registerBirthday from '../components/registerBirthday';
 import deleteBirthday from '../components/deleteBirthday';
 import isBirthday from '../components/isBirthday';
+import UseBirthdayToast from '../components/UseBirthdayToast';
 
 const Insert: React.FC = () => {
   const [selectedDate, setSelectedDate]:any = useState<String>();
@@ -41,13 +42,14 @@ const Insert: React.FC = () => {
       </IonHeader>
       <IonContent fullscreen>
         {alert('Alert', '', 'Please enter a valid name and a valid date.')}
+        {UseBirthdayToast()}
         <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent:'center', marginTop: '1vh', gap: '20px'}}>
           <IonItem color="light">
             <IonLabel>Enter a name</IonLabel>
             <IonInput placeholder="Alexandre" pattern='date' color="dark" onIonChange={e => setSelectedName(e.detail.value!)}></IonInput>
           </IonItem>
           <IonLabel>Date of the birthday</IonLabel>
-            <IonDatetime presentation="date" onIonChange={e => setSelectedDate(formatDate(e.detail.value!))}></IonDatetime>
+          <IonDatetime presentation="date" onIonChange={e => setSelectedDate(formatDate(e.detail.value!))}></IonDatetime>
           <IonButton color="primary" onClick={e => registerBirthday(selectedDate, selectedName) || setShowAlert(true)}>Insert</IonButton>
           {
             Object.keys(allBirthdays).length > 1 ? (
@@ -61,7 +63,7 @@ const Insert: React.FC = () => {
                 {
                   Object.keys(allBirthdays).map(function(key) {
                     const birthday = JSON.parse(allBirthdays[key])
-                    const birthdayDate = new Date(birthday.date)              
+                    const birthdayDate = new Date(birthday.date)     
                     if(!key.startsWith('birthday_')) {
                       return;
                     }      
