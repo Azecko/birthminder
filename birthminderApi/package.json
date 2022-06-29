@@ -1,0 +1,17 @@
+{
+  "name": "birthminderapi",
+  "version": "1.0.0",
+  "description": "Birthminder's API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm install && nodemon"
+  },
+  "author": "Azecko",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "fs": "^0.0.1-security",
+    "nodemon": "^2.0.18"
+  }
+}
